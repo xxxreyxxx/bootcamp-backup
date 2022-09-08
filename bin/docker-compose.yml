@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  Parking-Boot-Docker:
+    environment:
+      - PORT=8282
+      - DRIVER=com.mysql.jdbc.Driver
+      - DB_URL=jdbc:mysql://enigma-mysql-do-user-6888911-0.db.ondigitalocean.com:25060/barong?autoReconnect=true&useSSL=false
+      - DB_USER=barong
+      - DB_PASS=P@ssw0rd
+    image: my-parking/my-parking:1.0
+    build:
+      context: ./
+      dockerfile: dockerfile
+    ports: 
+      - "9001:8282"
+    restart: always

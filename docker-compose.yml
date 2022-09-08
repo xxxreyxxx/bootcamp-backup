@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  Parking-Boot-Docker:
+    environment:
+      - CONTEXT-PATH=/barong
+      - PORT=8282
+      - DRIVER=com.mysql.jdbc.Driver
+      - DB_URL=jdbc:mysql://165.22.241.39:3306/barong?autoReconnect=true&useSSL=false
+      - DB_USER=barong
+      - DB_PASS=P@ssw0rd
+    image: barong/barong-be:1.0
+    build:
+      context: ./
+      dockerfile: dockerfile
+    ports:
+      - "9001:8282"
+    restart: always
